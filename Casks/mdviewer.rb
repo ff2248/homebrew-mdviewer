@@ -7,6 +7,11 @@ cask "mdviewer" do
   desc "Minimal macOS Markdown viewer with Quick Look support"
   homepage "https://github.com/ff2248/md-viewer"
 
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
   depends_on macos: ">= :sonoma"
 
   app "MDViewer.app"
@@ -15,7 +20,14 @@ cask "mdviewer" do
     system_command "/usr/bin/qlmanage", args: ["-r"], print_stderr: false
   end
 
+  uninstall_postflight do
+    system_command "/usr/bin/qlmanage", args: ["-r"], print_stderr: false
+  end
+
   zap trash: [
+    "~/Library/Containers/io.github.ff2248.MDViewer.QuickLook",
+    "~/Library/HTTPStorages/io.github.ff2248.MDViewer",
     "~/Library/Preferences/io.github.ff2248.MDViewer.plist",
+    "~/Library/Saved Application State/io.github.ff2248.MDViewer.savedState",
   ]
 end
