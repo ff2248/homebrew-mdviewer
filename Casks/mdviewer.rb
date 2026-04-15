@@ -4,7 +4,7 @@ cask "mdviewer" do
 
   url "https://github.com/ff2248/md-viewer/releases/download/v#{version}/MDViewer-v#{version}.dmg"
   name "MDViewer"
-  desc "Minimal macOS Markdown viewer with Quick Look support"
+  desc "Minimal Markdown viewer with Quick Look support"
   homepage "https://github.com/ff2248/md-viewer"
 
   livecheck do
