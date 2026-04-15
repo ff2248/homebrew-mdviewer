@@ -16,14 +16,6 @@ cask "mdviewer" do
 
   app "MDViewer.app"
 
-  postflight do
-    system_command "/usr/bin/qlmanage", args: ["-r"], print_stderr: false
-  end
-
-  uninstall_postflight do
-    system_command "/usr/bin/qlmanage", args: ["-r"], print_stderr: false
-  end
-
   zap trash: [
     "~/Library/Containers/io.github.ff2248.MDViewer.QuickLook",
     "~/Library/HTTPStorages/io.github.ff2248.MDViewer",
